@@ -1,41 +1,47 @@
-import { Header } from "../../components/Header";
-import { Summary } from "../../components/Summary";
-import { SearchForm } from "./components/SearchForm";
-import { PriceHeighlight, TransactionsContainer, TransactionsTable } from "./styles";
+import { useContext } from 'react'
+import { Header } from '../../components/Header'
+import { Summary } from '../../components/Summary'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { dataFormatter, priceFormatter } from '../../utils/formatter'
+import { SearchForm } from './components/SearchForm'
+import {
+  PriceHeighlight,
+  TransactionsContainer,
+  TransactionsTable,
+} from './styles'
 
 export function Transactions() {
-	return (
-		<div>
-			<Header />
-			<Summary />
+  const { transactions } = useContext(TransactionsContext)
 
-			<TransactionsContainer>
-				<SearchForm />
-				<TransactionsTable>
-					<tbody>
-						<tr>
-							<td width="50%">Desenvolvimento de site</td>
-							<td>
-								<PriceHeighlight variant="income">
-									R$ 12.000,00
-								</PriceHeighlight>
-							</td>
-							<td>Venda</td>
-							<td>13/04/2022</td>
-						</tr>
-						<tr>
-							<td width="50%">Desenvolvimento de site</td>
-							<td>
-								<PriceHeighlight variant="outcome">
-									- R$ 59.00
-								</PriceHeighlight>
-							</td>
-							<td>Alimentação</td>
-							<td>13/04/2022</td>
-						</tr>
-					</tbody>
-				</TransactionsTable>
-			</TransactionsContainer>
-		</div>
-	)
+  return (
+    <div>
+      <Header />
+      <Summary />
+
+      <TransactionsContainer>
+        <SearchForm />
+        <TransactionsTable>
+          <tbody>
+            {transactions.map((transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHeighlight variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(transaction.price)}
+                    </PriceHeighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {dataFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </TransactionsTable>
+      </TransactionsContainer>
+    </div>
+  )
 }

@@ -1,0 +1,52 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-08-20T22:41:41.281Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburger",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createdAt": "2022-08-20T22:45:41.281Z"
+    },
+    {
+      "id": 3,
+      "description": "Ignite",
+      "type": "outcome",
+      "category": "Curso",
+      "price": 158,
+      "createdAt": "2022-08-20T23:45:41.281Z"
+    },
+    {
+      "description": "ignite plus",
+      "type": "outcome",
+      "category": "Curso",
+      "price": 45,
+      "createdAt": "2022-08-21T00:50:28.361Z",
+      "id": 4
+    },
+    {
+      "description": "Comida",
+      "type": "outcome",
+      "category": "Compras",
+      "price": 1200,
+      "createdAt": "2022-08-21T00:57:38.681Z",
+      "id": 5
+    },
+    {
+      "description": "Trabalho",
+      "price": 1567,
+      "category": "Trabalho",
+      "type": "income",
+      "createdAt": "2022-08-21T01:15:53.480Z",
+      "id": 6
+    }
+  ]
+}
