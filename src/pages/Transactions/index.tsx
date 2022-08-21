@@ -1,3 +1,4 @@
+import { CircleHalf } from 'phosphor-react'
 import { useContext } from 'react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
@@ -5,17 +6,25 @@ import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dataFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './components/SearchForm'
 import {
+  Button,
   PriceHeighlight,
   TransactionsContainer,
   TransactionsTable,
 } from './styles'
 
-export function Transactions() {
+interface PropsTheme {
+  toggleTheme(): void
+}
+
+export function Transactions({ toggleTheme }: PropsTheme) {
   const { transactions } = useContext(TransactionsContext)
 
   return (
     <div>
       <Header />
+      <Button onClick={toggleTheme}>
+        <CircleHalf size={25} />
+      </Button>
       <Summary />
 
       <TransactionsContainer>

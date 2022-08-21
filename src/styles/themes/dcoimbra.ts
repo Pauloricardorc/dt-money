@@ -1,5 +1,5 @@
 export default {
-  title: 'themeDefault',
+  title: 'dcoimbra',
 
   colors: {
     white: '#fff',
@@ -13,9 +13,9 @@ export default {
     'gray-800': '#202024',
     'gray-900': '#121214',
 
-    primary300: '#00B37E',
-    primary500: '#00875F',
-    primary700: '#015F43',
+    primary300: '#0066b2',
+    primary500: '#034694',
+    primary700: '#0E3386',
 
     'red-300': '#F75A68',
     'red-500': '#AB222E',
