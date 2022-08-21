@@ -1,5 +1,9 @@
 import { CircleHalf } from 'phosphor-react'
 import { useContext } from 'react'
+import Favicon from 'react-favicon'
+import { ThemeContext } from 'styled-components'
+import HeadIcon from '../../assets/head.svg'
+import DefaultIcon from '../../assets/react.svg'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
@@ -18,9 +22,11 @@ interface PropsTheme {
 
 export function Transactions({ toggleTheme }: PropsTheme) {
   const { transactions } = useContext(TransactionsContext)
+  const { title } = useContext(ThemeContext)
 
   return (
     <div>
+      <Favicon url={title === 'themeDefault' ? DefaultIcon : HeadIcon} />
       <Header />
       <Button onClick={toggleTheme}>
         <CircleHalf size={25} />
