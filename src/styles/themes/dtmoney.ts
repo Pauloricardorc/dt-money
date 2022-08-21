@@ -1,5 +1,5 @@
 export default {
-  title: 'dcoimbra',
+  title: 'dtmoney',
 
   colors: {
     white: '#fff',

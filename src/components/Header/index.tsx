@@ -1,6 +1,6 @@
 import { HeaderContainer, HeaderContent, NewTransationButton } from './styles'
 import Logo from '../../assets/logo.svg'
-import DCoimbra from '../../assets/dcoimbra.svg'
+import dtmoney from '../../assets/dtmoney.svg'
 import * as Dialog from '@radix-ui/react-dialog'
 import { NewTransactionModal } from '../NewTransactionModal'
 import { useContext } from 'react'
@@ -11,7 +11,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img src={title === 'themeDefault' ? Logo : DCoimbra} alt="" />
+        <img src={title === 'themeDefault' ? Logo : dtmoney} alt="" />
 
         <Dialog.Root>
           <Dialog.Trigger asChild>

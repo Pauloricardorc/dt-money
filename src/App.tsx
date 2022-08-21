@@ -4,7 +4,7 @@ import { Transactions } from './pages/Transactions'
 import { GlobalStyle } from './styles/global'
 
 import themeDefault from './styles/themes/default'
-import dcoimbra from './styles/themes/dcoimbra'
+import dtmoney from './styles/themes/dtmoney'
 import { usePersistentState } from './utils/usePersistedState'
 
 export function App() {
@@ -14,7 +14,7 @@ export function App() {
   )
 
   const toggleTheme = () => {
-    setTheme(theme.title === 'themeDefault' ? dcoimbra : themeDefault)
+    setTheme(theme.title === 'themeDefault' ? dtmoney : themeDefault)
   }
 
   return (
