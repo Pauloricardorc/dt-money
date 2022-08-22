@@ -5,6 +5,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { TransactionsContext } from '../../../../contexts/TransactionsContext'
+import { Can } from '../../../../contexts/authorization/authorizationContext'
 
 const searchFormSchema = z.object({
   query: z.string(),
@@ -27,17 +28,19 @@ export function SearchForm() {
   }
 
   return (
-    <SearchFormContainer onSubmit={handleSubmit(handleSearchTransaction)}>
-      <input
-        type="text"
-        placeholder="Busque por transações"
-        {...register('query')}
-      />
+    <Can I="search" a="Transaction">
+      <SearchFormContainer onSubmit={handleSubmit(handleSearchTransaction)}>
+        <input
+          type="text"
+          placeholder="Busque por transações"
+          {...register('query')}
+        />
 
-      <button type="submit" disabled={isSubmitting}>
-        <MagnifyingGlass size={20} />
-        Buscar
-      </button>
-    </SearchFormContainer>
+        <button type="submit" disabled={isSubmitting}>
+          <MagnifyingGlass size={20} />
+          Buscar
+        </button>
+      </SearchFormContainer>
+    </Can>
   )
 }

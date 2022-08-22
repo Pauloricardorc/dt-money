@@ -5,6 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { NewTransactionModal } from '../NewTransactionModal'
 import { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
+import { Can } from '../../contexts/authorization/authorizationContext'
 
 export function Header() {
   const { title } = useContext(ThemeContext)
@@ -13,13 +14,15 @@ export function Header() {
       <HeaderContent>
         <img src={title === 'themeDefault' ? Logo : dtmoney} alt="" />
 
-        <Dialog.Root>
-          <Dialog.Trigger asChild>
-            <NewTransationButton>Nova transação</NewTransationButton>
-          </Dialog.Trigger>
+        <Can I="create" a="Transaction">
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <NewTransationButton>Nova transação</NewTransationButton>
+            </Dialog.Trigger>
 
-          <NewTransactionModal />
-        </Dialog.Root>
+            <NewTransactionModal />
+          </Dialog.Root>
+        </Can>
       </HeaderContent>
     </HeaderContainer>
   )

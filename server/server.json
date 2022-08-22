@@ -1,0 +1,12 @@
+{
+  "transactions": [
+    {
+      "description": "Compra diária ",
+      "price": 2000,
+      "category": "Compras",
+      "type": "outcome",
+      "createdAt": "2022-08-22T15:22:43.242Z",
+      "id": 1
+    }
+  ]
+}
